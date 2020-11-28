@@ -1,0 +1,13 @@
+  /*card header class remove*/
+  .card-header {
+    border-bottom: none;
+    background-color: white;
+    }
+    .card-footer{
+    	border-top: none;
+    background-color: white;
+    }
+    .margin-class-for-buttons{
+    	margin-right: 40px;
+    	margin-top: 25px;
+    }

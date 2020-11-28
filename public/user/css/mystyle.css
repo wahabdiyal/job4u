@@ -1,0 +1,157 @@
+/*Search Box Css Start Here*/
+
+/*search box css start here*/
+.search-sec{
+    /*padding: 2rem;*/
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.section-page3{
+	padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.search-slt{
+    display: block;
+    width: 100%;
+    
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    /*border: 1px solid #ccc;*/
+    border-right: 2px solid gray;
+    height: calc(3rem + 20px) !important;
+   
+}
+
+@media (min-width: 992px){
+    .search-sec{
+        position: relative;
+        top: -70px;
+        
+        /*background: rgba(26, 70, 104, 0.51);*/
+    }
+    .section-page3{
+    	position: relative;
+    	top: -70px;
+    }
+    /* .maindiv-page5{
+    	position: relative;
+    	top: -100px;
+    } */
+
+
+.rounded-circle-page4{
+	/*position: absolute;
+	top: -15%;
+	left: 35%;*/
+	background-color: lightgray;
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.profile-img-page4{
+	position: absolute;
+	top: 15%;
+	left: 30%;
+	width: 40px;
+	height: 40px;
+}
+
+}
+
+@media (max-width: 992px){
+	
+	.job-search-page2{
+		margin-top: 10px;
+		height: 80px;
+		background-color: #2ec9fd;
+		align-items: center;
+	}
+    .search-sec{
+    	position: relative;
+        top: -70px;
+        
+        /*background: #1A4668;*/
+    }
+    .section-page3{
+    	position: relative;
+    	top: -70px;
+    }
+    .section-page5{
+    	position: relative;
+    	top: -100px;
+    }
+
+    .rounded-circle-page4{
+	/*position: absolute;
+	top: -15%;
+	left: 35%;*/
+	background-color: lightgray;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.profile-img-page4{
+	position: absolute;
+	top: 5%;
+	left: 45%;
+	width: 20px;
+	height: 20px;
+}
+.profile-class-page4{
+		margin-top: 60px;
+}
+
+
+}
+
+@media (max-width: 767px)
+{
+	.up-res-con-search{
+		margin-top: 20px;
+	}
+	.profile-class-page4
+	{
+		margin-top: 75px;
+		margin-left: 50px;
+	}
+	.profile2-class-page4
+	{
+		margin-left: 50px;
+	}
+}
+
+
+
+/*####################Media query end####################3*/
+
+/*search page css for Card*/
+
+.save-card-header{
+	float: right; 
+	color: rgb(127 127 168);
+}
+
+.bacic-header-color{
+	color: #2ec9fd;
+}
+
+.round-boader {
+  border: 2px solid gray;
+  border-radius: 12px;
+  padding:8px;
+  
+}
+.card-link{
+		/*font-size: 13px !important;*/
+	}
+	.fontclassspan{
+		font-size: 13px;
+		font-weight: normal;
+	}

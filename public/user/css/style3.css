@@ -1,0 +1,23 @@
+
+*{
+	box-sizing: border-box;
+}
+.inputhover>input{
+	height: 60px;
+	border-right: 2px solid gray;
+}
+.inputhover>input:focus{
+	border: none !important;
+	/*background-color: yellow;*/
+}
+.inputhover>button{
+	height: 60px;
+	width: 100px;
+	margin-left: -5px;
+}
+.nf-cnr{
+	border-bottom: 2px solid gray;
+}
+.page-six-smalltext{
+	font-size: 13px;
+}

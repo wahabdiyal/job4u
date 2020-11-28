@@ -1,0 +1,114 @@
+body{
+
+    margin: 0;
+}
+*{
+	box-sizing: border-box;
+}
+
+.div1{
+		padding-top: 40px;
+}
+
+/*.btn{
+		box-sizing: border-box;
+		border: 2px solid lightgray;
+		border-radius: 10px;
+		
+		padding: 10px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 1.0em;
+}*/
+.navbar-own{
+	height: 200px;
+	/*background-color: #29ADF0;*/
+	background-color: #32BAE7
+
+
+}
+.divfirjumbo{
+
+			overflow: hidden;
+}
+.jumbo{
+			overflow: hidden;
+			height: 180px;
+			margin-top: 10px;
+			margin-left: 250px;
+			margin-bottom: 10px;
+			padding: 0;
+			padding-top: 60px;
+			background-color: #32BAE7;
+}
+.spanclass{
+	margin-right: 20px;
+		width: 40px;
+		background-color: white;
+}
+
+	.rowclassform{
+					margin-left: 600px;
+
+					justify-content: center;
+					align-items: center;
+	}
+
+.labele{
+	
+		margin-top: 50px;
+		background-color: white;
+
+
+		/*justify-content: center;*/
+		/*align-items: center;*/
+}
+
+/*input[type="text"]
+{
+	border:none;
+	width: 300px;
+	height: 40px;
+	padding-right: 15px;
+	padding: 0 15px;
+	background-color: white;
+	border-right: 2px solid lightgray;
+	text-align: left;
+}*/
+.label2{
+	border:none;
+	width: 500px;
+	height: 40px;
+	padding-right: 15px;
+	/*padding: 0 15px;*/
+	background-color: white;
+	border-right: 2px solid lightgray;
+	text-align: left;
+}
+
+.btton
+{	
+	position: absolute;
+	left: 850px;
+	top:70px;
+	height: 80px;
+	
+	
+}
+.form-control{
+	width: 400px;
+	margin-left: 0px;
+}
+.Box{
+		box-sizing: border-box;
+		height: 300px;
+		border: 5px solid black;
+}
+/*.navbar{
+    border-bottom: 3px solid #A239CA;
+     height: 80px;
+}
+.footer{
+    background-color: lightgray;
+    height: 80px;
+}*/
