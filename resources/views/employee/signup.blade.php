@@ -57,7 +57,7 @@
 <div class="name">Company web</div>
 <div class="value">
 <div class="input-group">
-<input class="input--style-5" type="text" name="company" placeholder="www.?.com">
+<input class="input--style-5" type="text" name="company_website" placeholder="www.?.com">
 </div>
 </div>
 </div>
@@ -126,7 +126,7 @@
 <div class="value">
 <div class="input-group">
 <div class="rs-select2 js-select-simple select--no-search">
-<select id="select" name="subject">
+<select id="select" name="company_country">
 <option disabled="disabled" selected="selected">Choose option</option>
 <option>Pakistan</option>
 <option>India</option>
@@ -145,6 +145,14 @@
 </div>
 </div>
 </div>
+<div class="form-row" >
+<div class="name">Company size</div>
+<div class="value">
+<div class="input-group">
+<input class="input--style-5"  maxlength="14"  type="number" name="company_size">
+</div>
+</div>
+</div>
 <div class="form-row">
 <div class="name">About Company</div>
 <div class="value">
@@ -153,7 +161,7 @@
 </div>
 </div>
 </div>
-<div class="form-row p-t-20">
+<!-- <div class="form-row p-t-20">
 <label class="label label--block">Are you an existing customer?</label>
 <div class="p-t-15">
 <label class="radio-container m-r-55">Yes
@@ -165,7 +173,7 @@
 <span class="checkmark"></span>
 </label>
 </div>
-</div>
+</div> -->
 <div>
 <button class="btn btn--radius-2 btn--red" id="submit" type="submit">Register</button>
 </div>

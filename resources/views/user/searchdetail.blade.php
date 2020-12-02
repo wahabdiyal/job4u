@@ -61,6 +61,11 @@
                             <span class="  text-muted pt-3 pr-4 page3-span">Today</span>
                             @endif
                             <span class="  text-muted pt-3 pr-4"><a href="#" class="page3-span">Save job</a></span>
+                            <div id="loading" style="display: none;" class="  text-muted pt-3 pr-4">
+  <!-- You can add gif image here 
+  for this demo we are just using text -->
+  Loading...
+</div>
                             <span class="  text-muted pt-3 pr-4">More...</span>
 
                         </div>
@@ -87,7 +92,7 @@
                              <table class="ml-4">
 
                                 <tr>
-                                  <td style="color: gray;">Role User</td>
+                                  <td style="color: gray;"> User Experience</td>
                                   <td>{{$search->experience}}</td>
                                 </tr>
                                 <tr>
@@ -95,6 +100,7 @@
                                   <td>{{$search->industry}}</td>
                                  
                                 </tr>
+                                 
                                 <tr>
                                   <td style="color: gray;">Functional Area</td>
                                   <td>{{$search->area}}</td>
@@ -327,21 +333,19 @@
                                     </div>
                                 </div>
                                 <div class="container boader-secondary round-boader mt-5 p-4">
-                                     
+                                     <div class="col-12">
                                     <input type="file" id="file1"  name="file1" style="display:none" />
                                     <a href="#" class="mb-3" id="CV-read-modal"></a><br>
                                     <button id="upfile1" class="btn btn-light btn-lg"> <img src="{{url('user/asserts/upload3.png')}}"
                                             class="img-fluid"> Upload New Resume</button>
-
-                                    <!-- <div class="row">
-                                        <div class="col-md-3  text-right">
-                                            <img src="asserts/upload3.png" class="img-fluid">
-                                        </div>
-                                        <div class="col-md-9">
-                                            <h5>Upload New Resume</h5>
-                                        </div>
-                                    </div> -->
-
+                                            </div>
+                                            <br>
+                                            <div class="col-12">   
+                                <div class="form-group">
+                                   <label for="exampleFormControlTextarea1">Candidate:{{$search->candidate}}</label>
+                                   <textarea id="candidate" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Short Note.."></textarea>
+                                 </div>
+                             </div>
                                 </div>
 
 
@@ -376,75 +380,7 @@
 
                         </div> <!-- card div -->
                     </div>
-                    <div class="tabcontent1" id="content2">
-
-                        <div class="card shadow border-light mb-3">
-                            <div class="card-body">
-
-                                <h4 class="card-title">UI/UX Designer</h4>
-
-                                <h6 class="card-title">Highapp Solutions Lahore</h6>
-
-                                <form class="mt-5">
-                                    <div>
-                                        <h6>How many years of Mobile App Designing experience do you have?</h6>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="" class="form-control form-control-lg">
-                                    </div>
-                                    <div>
-                                        <h6>How many years of Screenshot Designs experience do you have?</h6>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="" class="form-control form-control-lg">
-                                    </div>
-                                    <div>
-                                        <h6 class="">What is the highest level of education you have completed?</h6>
-
-                                    </div>
-                                    <div class="form-group input-group">
-
-                                        <select class="form-control form-control-lg">
-                                            <option>BSCS</option>
-                                        </select>
-                                    </div>
-
-                                </form>
-
-                                <div class="row mt-5">
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-danger" data-toggle="modal"
-                                            data-target="#submit-modal" data-dismiss="modal">Continue</button>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-outline-danger">Back</button>
-                                    </div>
-                                </div>
-
-
-
-                            </div> <!-- card body -->
-
-                        </div> <!-- card div -->
-
-
-
-
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
+ 
                 </div>
             </div> <!-- modal content div -->
 
@@ -456,7 +392,47 @@
 
 
     <!-- ############# Profile Modal End ##################### -->
+ <div class="modal fade bd-example-modal-lg" id="test">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="container text-center mt-4 p-3">
+                    <h3 class="text-weight-bolder">Create an Account (it's Free!)</h3>
+                </div>
+                <div class="container">
+                    <form class="p-3">
+                        <div class="form-group">
+                            <div id="testvalue">
+                                
+                            </div>
+                            <h6>Email/Login id:</h6>
+                            <input type="text" name="login-email-id" class="form-control form-control-lg">
+                        </div>
+                        <div class="form-group">
+                            <h6>Password:</h6>
+                            <input type="Password"  name="login-password" class="form-control form-control-lg">
+                        </div>
+                        <div class="container mt-5">
+                            <button class="btn btn-danger btn-lg btn-block">Create Account</button>
+                        </div>
+                         
 
+
+
+
+
+                        <div class="container pt-4 ">
+                            <button class="btn btn-outline-secondary btn-lg btn-block round-boader">Sign in with
+                                Gmail</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
     
 
 
@@ -471,11 +447,9 @@
                         <h4>Your Application Has Been Submited</h4>
                     </div>
                     <div class="container mt-4">
-                        <button class="btn btn-danger btn-lg btn-block">Continue</button>
+                        <button class="btn btn-danger btn-lg btn-block" onclick="location.reload()">Continue</button>
                     </div>
-                    <div class="mt-3 text-center">
-                        <a href="#" style="color: red;"> Cancel</a>
-                    </div>
+                     
                 </div>
             </div>
 
@@ -484,7 +458,15 @@
     <!-- ############# Submit Modal End ############################## -->
 @endif
 
-    <script>
+
+
+
+
+
+@endsection
+@section('script')
+@if(session()->get('user'))
+ <script>
 
 
         var currentTab = 1;
@@ -492,8 +474,44 @@
         // $(".tabcontent1").hide();
 
         function next(currentTab) {
-            if (currentTab < 3) {
-                console.log("Enter in function");
+            if (currentTab <= 2 ) {
+                $(document).ajaxStart(function() {
+                   // $("#test").modal('show'); 
+                     
+                        }).ajaxStop(function() {
+                      // $('#testvalue').append('abctest');
+                        });
+                if(currentTab==2){
+                   
+                 $(document).ready(function(){
+
+                var cmy_id = '{{$search->company->id}}';
+                var user_id = "{{session()->get('user')['id']}}";
+                var job_register_id = "{{$search->id}}";
+                var candidate=$('#candidate').val();
+                 
+                data = {company_id:cmy_id, user_id:user_id,_token: "{{ csrf_token() }}",job_register_id:job_register_id,candidate_note:candidate};
+                console.log(data);
+                $.ajax({
+                type: "POST",
+                url: "{{url('submitCv')}}",
+                data: data,
+                cache: false,
+                success: function(data){
+                    
+                  
+                    if(data != 0){
+                  $("#submit-modal").modal('show'); 
+                    }else{
+                        alert('Already submit');
+                        location.reload();
+                    }
+                 
+                 }
+                             });
+               });
+            }
+                console.log(currentTab);
                 $("#content1").hide();
                 // currentTab++;
                 $("#content" + (currentTab)).show();
@@ -506,13 +524,6 @@
 
 
     </script>
-
-
-
-
-@endsection
-@section('script')
-@if(session()->get('user'))
 <script>
     $("#upfile1").click(function () {
     $("#file1").trigger('click');

@@ -15,6 +15,7 @@ class AddFieldCompanyTable extends Migration
     {
         Schema::table('companies', function (Blueprint $table) {
              $table->string('company_number')->nullable();
+             $table->string('company_country')->nullable();
             
         });
     }
@@ -28,6 +29,7 @@ class AddFieldCompanyTable extends Migration
     {
         Schema::table('companies', function (Blueprint $table) {
             $table->dropColumn('company_number');
+            $table->dropColumn('company_country');
             //
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Models\JobRegister;
+use App\Models\SubmitCv;
 class CompanyController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class CompanyController extends Controller
     {
         $a=JobRegister::where('company_id',session()->get('emply')->id)->paginate(4);
         if($a){
-            return view('employee.jobs')->with('jobs',$a);
+           
+            return view('employee.jobs')->with('jobs',$a) ;
         }else{
             return view('employee.jobs')->with('jobs',null);
         } 
@@ -29,9 +31,38 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function  registerCompany(Request $request)
-    {
-         $emply=Company::where('email','abc@abc.com')->where('password',md5('123456'))->first();
-
+    {   
+        // dd($request->input());
+        $request->validate([
+            "name" => 'required',
+            "company_type" => 'required',
+            "company_website" => 'required',
+            "email" => 'unique:App\Models\Company,email',
+            "password" => 'required',
+            "address" => 'required',
+            "mobile_number" => 'required',
+            "company_country" => 'required',
+            "company_number" => 'required',
+            "detail" => 'required',
+             
+        ]);
+        
+            $emply=Company::create([
+            "name" => $request->input('name'),
+            "company_type" => $request->input('company_type'),
+            "company_website" => $request->input('company_website'),
+            "email" => $request->input('email'),
+            "company_size" => $request->input('company_size'),
+            "password" => $request->input('password'),
+            "address" => $request->input('address'),
+            "mobile_number" => $request->input('area_code').$request->input('mobile_number'),
+            "company_country" => $request->input('company_country'),
+            "company_number" => $request->input('company_number'),
+            "detail" => $request->input('detail'),
+            "active_deactive" => 'active',
+            "registration_date" => now(),
+            ]);
+         
        if($emply){
                 
                 $request->session()->put('emply',$emply);

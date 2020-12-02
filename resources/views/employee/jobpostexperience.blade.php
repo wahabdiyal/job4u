@@ -51,12 +51,12 @@
                                             style="color: red;">*</span></h6>
                                             <select class="custom-select" id="inputGroupSelect01"
                                             style="border: 1px solid black;" name="candidate">
-                                            <option selected value="seeker">Job seeker</option>
+                                            <option selected value="Job Seeker">Job seeker</option>
                                             <option value="Handicap">Handicap person</option>
                                             <option value="Trainer">Trainer</option>
                                             <option value="Student">Student</option>
                                             <option value="Apprentice">Apprentice</option>
-                                            <option value="Subsidized">Subsidized  contract</option>
+                                            <option value="Subsidized Contract">Subsidized Contract</option>
                                         </select>
                                 </div>
                                 <div class="mt-5">
