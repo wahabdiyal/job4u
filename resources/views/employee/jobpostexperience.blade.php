@@ -59,6 +59,16 @@
                                             <option value="Subsidized Contract">Subsidized Contract</option>
                                         </select>
                                 </div>
+                                <div class="form-group mt-5">
+                                    <h6 style="font-weight: bold;">Term contract of this job: <span class="ml-1"
+                                            style="color: red;">*</span></h6>
+                                            <select class="custom-select" id="team_contract"
+                                            style="border: 1px solid black;" name="term_contract">
+                                            <option selected value="CDD">CDD (Fixed Term)</option>
+                                            <option value="CDI">CDI (No fixed Term contract)</option>
+                                             
+                                        </select>
+                                </div>
                                 <div class="mt-5">
                                     <h6 style="font-weight: bold;">What contract type is it?</h6>
                                     <div class="input-group mb-3">

@@ -35,6 +35,7 @@ class User extends Authenticatable
     'image',
         'desired_state',
         'desired_district',
+        'candidate_note',
     ];
 
     /**

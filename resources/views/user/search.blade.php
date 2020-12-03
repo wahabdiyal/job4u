@@ -90,6 +90,32 @@
 
         </div>
         <div class="col-md-2">
+            <div class="btn-group buttondropdown" role="group">
+                <button id="candidate" type="button"
+                    class="<?=(isset($_GET['candidate'])) ?'active':'' ?> btn btn-light dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?=(isset($_GET['candidate'])) ?$_GET['candidate']:'Candidate' ?> </button>
+                <div class="dropdown-menu" aria-labelledby="candidate">
+                    <a class="dropdown-item"
+                        href="{{url('search')}}?job={{$_GET['job']}}&location={{$_GET['location']}}&candidate=Job Seeker">Job Seeker</a>
+                    <a class="dropdown-item"
+                        href="{{url('search')}}?job={{$_GET['job']}}&location={{$_GET['location']}}&candidate=Handicap">Handicap</a>
+                    <a class="dropdown-item"
+                        href="{{url('search')}}?job={{$_GET['job']}}&location={{$_GET['location']}}&candidate=Trainer">Trainer</a>
+                        <a class="dropdown-item"
+                        href="{{url('search')}}?job={{$_GET['job']}}&location={{$_GET['location']}}&candidate=Student">Student</a>
+                        <a class="dropdown-item"
+                        href="{{url('search')}}?job={{$_GET['job']}}&location={{$_GET['location']}}&candidate=Apprentice">Apprentice</a>
+                        <a class="dropdown-item"
+                        href="{{url('search')}}?job={{$_GET['job']}}&location={{$_GET['location']}}&candidate=Subsidized Contract">Subsidized Contract</a>
+                        
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-2">
             <style>
             #myInputw3 {
                 box-sizing: border-box;
@@ -207,9 +233,12 @@
                     <div class="card-header">
                         <span class="bacic-header-color fontclassspan">New</span>
                         <span class="save-card-header fontclassspan"><i class="fa fa-star-o mr-2"></i>save</span>
+                        <br>
+                        <span class=" fontclassspan">The company is looking for:{{$search->candidate}}</span>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{$search->job_title}}</h4>
+
                         <h6 class="card-title"><?php (isset($search->company['name'])) ?$search->company['name']:''; ?>
                         </h6>
                         <span class="card-link fontclassspan"><img src="{{url('user/asserts/bag.png')}}">

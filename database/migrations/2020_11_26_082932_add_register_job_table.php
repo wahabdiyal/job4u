@@ -17,6 +17,8 @@ class AddRegisterJobTable extends Migration
              $table->string('candidate')->nullable();
              $table->string('remote')->nullable();
              $table->string('total_hire')->default(0);
+             $table->string('team_contact')->default(0);
+             
         });
     }
 
@@ -31,6 +33,7 @@ class AddRegisterJobTable extends Migration
             $table->dropColumn('candidate');
             $table->dropColumn('remote');
             $table->dropColumn('total_hire');
+            $table->dropColumn('team_contact');
              
         });
     }

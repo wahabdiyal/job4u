@@ -103,6 +103,46 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
      
                  
          }
+         if (!empty($request->location) && !empty($request->job) && !empty($request->candidate)) {
+     
+           $searchs = JobRegister::where('city',$request->location)
+                    ->where('candidate',$request->candidate)
+                    ->where('job_skill','like',$request->job. '%')
+                    ->with('company')
+                    ->paginate(4);
+                    
+     
+                 
+         }elseif (!empty($request->job) && !empty($request->candidate)) {
+     
+           $searchs = JobRegister::where('candidate',$request->candidate)
+                    
+                    ->where('job_skill','like',$request->job. '%')
+                    ->with('company')
+                    ->paginate(4);
+              
+     
+                 
+         }elseif (!empty($request->location) && !empty($request->candidate)) {
+     
+           $searchs = JobRegister::where('candidate',$request->candidate)
+                     
+                    ->where('job_skill','like',$request->job. '%')
+                    ->with('company')
+                    ->paginate(4);
+                    
+     
+                 
+         }elseif (!empty($request->candidate)) {
+     
+           $searchs = JobRegister::where('candidate',$request->candidate)
+                     
+                    ->with('company')
+                    ->paginate(4);
+                    
+     
+                 
+         }
 
          elseif (!empty($request->location) && !empty($request->job) && !empty($request->company)) {
     
@@ -434,6 +474,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
     }
     public function personalSave(Request $request,$id)
     {
+         
         $user=User::find($id);
        
         $dataOfUser['lname']=$request->input('lname');
@@ -445,6 +486,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
         $dataOfUser['address']=$request->input('address');
         if($request->input('phone')){
         $dataOfUser['phone']=$request->input('phone');
+        $dataOfUser['candidate_note']=$request->input('candidate_note');
     }
         if ($request->file('cv')) {
               $request->validate([

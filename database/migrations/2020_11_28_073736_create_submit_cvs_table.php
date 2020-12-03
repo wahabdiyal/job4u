@@ -16,10 +16,11 @@ class CreateSubmitCvsTable extends Migration
         Schema::create('submit_cvs', function (Blueprint $table) {
             $table->id();
           
-            $table->string('status')->default('');
+            $table->string('status')->default('awaiting');
             $table->foreignId('user_id');
             $table->foreignId('company_id');
             $table->foreignId('job_register_id');
+            $table->longText('candidate_note');
             $table->timestamps();
         });
     }

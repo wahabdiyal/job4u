@@ -68,6 +68,10 @@
                         <span class="font-weight-bold page-six-smalltext">Address: </span>
                         <span class="page-six-smalltext">&nbsp;  <?php if(isset($user['address'])) echo$user['address'];else echo'<a href="#" class="edit">🖍</a>'; ?> </span>
                     </div>
+                    <div class="row mt-2">
+                        <span class="font-weight-bold page-six-smalltext">Candidate Type: </span>
+                        <span class="page-six-smalltext">&nbsp;  <?php if(isset($user['candidate_note'])) echo$user['candidate_note'];else echo'<a href="#" class="edit">🖍</a>'; ?> </span>
+                    </div>
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-4 mt-4 shadaow mb-3 p-2 border-round">

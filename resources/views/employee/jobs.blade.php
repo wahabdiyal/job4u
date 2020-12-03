@@ -92,7 +92,7 @@
                         <td style="font-size: 0.8em;">{{$job->job_title}}<br><span
                                 class="text-muted">{{$job->city}}</span><br><span class="text-muted">Created: {{$job->created_at}}</span> </td>
                           <td style="font-size: 0.8em;"><span>{{ \App\Models\SubmitCv::where('company_id',session()->get('emply')->id)->where('job_register_id',$job->id)->count()}} Active</span><br> <span
-                                style=" color: red;"><a  href="{{url('/employee/candidates',$job->id)}}">Condidates</a></span></td>
+                                style=" color: red;"><a  href="{{url('/employee/candidates',$job->id)}}">Candidates</a></span></td>
                         <td style="font-size: 0.8em; text-align: center;"><span>0 </span><br><span
                                 style=" color: red;">Awaiting</span> </td>
 

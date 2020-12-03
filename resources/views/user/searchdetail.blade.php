@@ -61,11 +61,7 @@
                             <span class="  text-muted pt-3 pr-4 page3-span">Today</span>
                             @endif
                             <span class="  text-muted pt-3 pr-4"><a href="#" class="page3-span">Save job</a></span>
-                            <div id="loading" style="display: none;" class="  text-muted pt-3 pr-4">
-  <!-- You can add gif image here 
-  for this demo we are just using text -->
-  Loading...
-</div>
+       
                             <span class="  text-muted pt-3 pr-4">More...</span>
 
                         </div>
@@ -129,8 +125,15 @@
                                     <td>Any Postgraduate in Any Specialization</td>
                                 </tr>
                                 <tr>
-                                    <td>Doctorate:</td>
-                                    <td>Doctorate Not Required</td>
+                                    <td>Team Contract:</td>
+                                    <td>@if($search->team_contact)
+                                        @if($search->team_contact=='CDD')
+                                        Fixed Term-{{$search->team_contact}}
+                                        @else
+                                        No fixed Term contract-{{$search->team_contact}}
+                                        @endif
+                                        @endif
+                                    </td>
                                 </tr>
                              </table>
                              <h6 class="ml-4">Skills</h6>

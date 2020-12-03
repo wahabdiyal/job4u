@@ -163,10 +163,10 @@ Route::group(['middleware' => ['Employee']], function () {
   Route::post('/employee/firstJobForm2',function(Request $request){
 
             $request->session()->put('form2',$request->input());
-             // dd(array_merge(session('form1'),session('form2')));
+               // dd(array_merge(session('form1'),session('form2')));
 
 
-           $u = \App\Models\JobRegister::create(['employment_type'=>$request->input('employment_type'),'job_skill'=>session()->get('form1')['job_skill'],'industry'=>session()->get('form1')['industry'],'total_hire'=>session()->get('form1')['total_hire'],'remote'=>$request->input('remote'),'candidate'=>$request->input('candidate'),'experience'=>$request->input('experience'), 'salery'=>$request->input('start_salary')."-".$request->input('start_salary') ,'job_title'=>session()->get('form1')['job_title'],'city'=>session()->get('form1')['city'],'company_id'=>session()->get('emply')['id'],'job_description'=>session()->get('form2')['job_description']]);
+           $u = \App\Models\JobRegister::create(['team_contact'=>$request->input('term_contract'),'employment_type'=>$request->input('employment_type'),'job_skill'=>session()->get('form1')['job_skill'],'industry'=>session()->get('form1')['industry'],'total_hire'=>session()->get('form1')['total_hire'],'remote'=>$request->input('remote'),'candidate'=>$request->input('candidate'),'experience'=>$request->input('experience'), 'salery'=>$request->input('start_salary')."-".$request->input('start_salary') ,'job_title'=>session()->get('form1')['job_title'],'city'=>session()->get('form1')['city'],'company_id'=>session()->get('emply')['id'],'job_description'=>session()->get('form2')['job_description']]);
             return redirect('/employee/jobs');
             // dd($u);
              

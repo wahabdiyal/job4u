@@ -91,28 +91,27 @@
                                             <input type="email" name="email" id="email" class="form-control form-control-lg" value="{{$user->email}}" placeholder="xyz@gmail.com" disabled>
                                         </div>
                                         <div>
-                                            <h6>Phone</h6>
+
+                                                    <h5>Candidate Type</h5>
+                                                </div>
+                                                <div class="form-group input-group">
+
+                                                    <select id="candidate_note" required name="candidate_note" class="form-control form-control-lg">
+                                                    <option <?=(!empty($user->candidate_note) && $user->candidate_note=='Job Seeker')?'selected':'';?> value="Job Seeker">Job seeker</option>
+                                                     <option <?=(!empty($user->candidate_note) && $user->candidate_note=='Handicap') ?'selected':'';?> value="Handicap">Handicap person</option>
+                                                     <option <?=(!empty($user->candidate_note) && $user->candidate_note=='Trainer')?'selected':'';?> value="Trainer">Trainer</option>
+                                                     <option <?=(!empty($user->candidate_note) && $user->candidate_note=='Student')?'selected':'';?> value="Student">Student</option>
+                                                     <option <?=(!empty($user->candidate_note) && $user->candidate_note=='Apprentice')?'selected':'';?> value="Apprentice">Apprentice</option>
+                                                     <option <?=(!empty($user->candidate_note) && $user->candidate_note=='Subsidized Contract')?'selected':'';?> value="Subsidized Contract">Subsidized Contract</option>
+                                                    </select>
+
+                                                    
+                                                </div>
+                                        <div>
+                                            <h6>Phone:(+33345679899)</h6>
                                         </div>
                                         <div class="form-group input-group">
-
-                                            <div class="btn-group input-group-prepend">
-
-                                                <button type="button"
-                                                    class="btn btn-light dropdown-toggle dropdown-toggle-split"
-                                                    data-toggle="dropdown">
-                                                    <span class=""></span> +27
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item " href="#">+92</a>
-                                                    <a class="dropdown-item" href="#">+42</a>
-                                                </div>
-                                            </div>
-
-
-
-
-
-                                            <input type="text" name="phone" id="phone" class="form-control form-control-lg" placeholder="1234567" value="{{$user->phone}}">
+                                         <input type="text" name="phone" id="phone" class="form-control form-control-lg"  required="" pattern="[+]{1}[0-9]{11,14}" placeholder="+33345679899" value="{{$user->phone}}">
                                         </div>
                                         <div class="form-group">
                                             <h6>Current City</h6>
