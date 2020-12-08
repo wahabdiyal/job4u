@@ -15,7 +15,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $a=JobRegister::where('company_id',session()->get('emply')->id)->paginate(4);
+        $a=JobRegister::where('company_id',session()->get('emply')->id)->orderBy('id', 'DESC')->paginate(4);
         if($a){
            
             return view('employee.jobs')->with('jobs',$a) ;

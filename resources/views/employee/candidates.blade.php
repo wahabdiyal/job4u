@@ -43,6 +43,7 @@
                         <th scope="col"><input type="checkbox" name=""></th>
                         <th scope="col" style="font-size: 0.8em;">Name</th>
                         <th scope="col" style="font-size: 0.8em;">Status</th>
+                        <th scope="col" style="font-size: 0.8em;">Candidate Type</th>
                         <th scope="col" style="font-size: 0.8em;">Date</th>
                         <th colspan="2" scope="col" style="font-size: 0.8em;" class="text-center">Interested?</th>
 
@@ -50,15 +51,22 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white shadow">
-                   
+                 
                     @foreach($users as $user)
                     <tr>
                         <td><input type="checkbox" name=""></td>
                         <td style="font-size: 0.8em;"><a href="{{url('employee/candidate',$user->id)}}/{{$user->jobId}}"> {{$user->name}}</a></td>
                         <td style="font-size: 0.8em;"><span class="p-2 bg-light" >{{$user->jobStatus}}</span></td>
+                        <td style="font-size: 0.8em;"><span class="p-2 bg-light" >{{$user->cnd}}</span></td>
                         <td style="font-size: 0.8em;">{{$user->requestTime}}</td>
-                        <td class="text-right"><button class="btn btn-danger" style=" border-radius: 8px;">Approved</button></td>
-                        <td><button class="btn" style="background-color: #2ec9fd; border-radius: 8px; color: white;">Approved</button></td>
+                        @if($user->jobStatus=='active')
+                        <td class="text-right"><a href="{{url('/employee/candidates',[$user->cvid,'reject'])}}" class="btn btn-danger" style=" border-radius: 8px;">Reject</a></td>
+                        <td><a href="{{url('/employee/candidates',[$user->cvid,'reviewed'])}}" class="btn" style="background-color: #2ec9fd; border-radius: 8px; color: white;">Approve</a></td>
+                        @elseif($user->jobStatus=='reviewed')
+                        <td><a href="#" class="btn" style="background-color: #2ec9fd; border-radius: 8px; color: white;">Approved</a></td>
+                        @else
+                        <td><a href="" class="btn" style="background-color: #2ec9fd; border-radius: 8px; color: white;">Rejected</a></td>
+                        @endif
                     </tr>
                     @endforeach
                      

@@ -82,7 +82,7 @@
                           <div class="form-group mt-5">
                                     <h6 style="font-weight: bold;">Total Hiring<span class="ml-1"
                                             style="color: red;">*</span></h6>
-                                           <input type="text" name="total_hire" class="form-control form-control-lg bg-white" required placeholder="1-10">
+                                           <input type="text" pattern="^\d{1}-\d{0,20}" name="total_hire" class="form-control form-control-lg bg-white" required placeholder="1-10">
                          </div>
                             </div>
             

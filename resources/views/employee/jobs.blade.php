@@ -10,12 +10,12 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="col-md-10">
-                        <select class="custom-select bg-light" id="inputGroupSelect01" style="border: none;">
+                       <!--  <select class="custom-select bg-light" id="inputGroupSelect01" style="border: none;">
                             <option selected>Open and paused job(7)</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
-                        </select>
+                        </select> -->
                     </div>
 
                 </div>
@@ -93,10 +93,10 @@
                                 class="text-muted">{{$job->city}}</span><br><span class="text-muted">Created: {{$job->created_at}}</span> </td>
                           <td style="font-size: 0.8em;"><span>{{ \App\Models\SubmitCv::where('company_id',session()->get('emply')->id)->where('job_register_id',$job->id)->count()}} Active</span><br> <span
                                 style=" color: red;"><a  href="{{url('/employee/candidates',$job->id)}}">Candidates</a></span></td>
-                        <td style="font-size: 0.8em; text-align: center;"><span>0 </span><br><span
+                        <td style="font-size: 0.8em; text-align: center;"><span>{{ \App\Models\SubmitCv::where('company_id',session()->get('emply')->id)->where('job_register_id',$job->id)->where('status','active')->count()}}  </span><br><span
                                 style=" color: red;">Awaiting</span> </td>
 
-                        <td style="font-size: 0.8em; text-align: center;" ><span >0 </span><br> <span
+                        <td style="font-size: 0.8em; text-align: center;" ><span >{{ \App\Models\SubmitCv::where('company_id',session()->get('emply')->id)->where('job_register_id',$job->id)->where('status','reviewed')->count()}} </span><br> <span
                                 style=" color: red;">Reviewed</span></td>
                         <td style="font-size: 0.8em; text-align: center;"><span>0 </span><br> <span
                                 style=" color: red;">Contacting</span></td>

@@ -7,6 +7,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobRegisterController;
 use App\Http\Controllers\SkillDetailController;
+use App\Http\Controllers\SubmitCvController;
 use Illuminate\Http\Request;
 use App\Models\SubmitCv;
 
@@ -182,17 +183,12 @@ Route::group(['middleware' => ['Employee']], function () {
   });
 
     /**********************show detail of jobseeker**********************/
-     Route::get('/employee/candidate/{user_id}/{job_id}',function($user_id,$job_id){
-      $user =App\Models\User::find($user_id);
-    return view('employee.candidate')->with('user',$user)->with('job',App\Models\JobRegister::join('submit_cvs','submit_cvs.job_register_id','=','job_registers.id')->where('job_registers.id',$job_id)->select('job_registers.*','submit_cvs.candidate_note')->first());
-  });
-      Route::get('/employee/candidates/{job_id}',function(Request $request,$id){
-          $user=App\Models\User::join('submit_cvs','submit_cvs.user_id','=','users.id')->join('job_registers','job_registers.id','=','submit_cvs.job_register_id')->where('job_registers.company_id',session()->get('emply')['id'])->where('submit_cvs.job_register_id',$id)->select('users.*','submit_cvs.status AS jobStatus','submit_cvs.created_at AS requestTime','job_registers.id AS jobId')->get();
+     Route::get('/employee/candidate/{user_id}/{job_id}',[SubmitCvController::class,'candidate']);
+      Route::get('/employee/candidates/{job_id}',[SubmitCvController::class,'candidates']);
+      Route::get('/employee/candidates/{job_id}/{status}', [SubmitCvController::class,'updateStatus']);
+      Route::post('/employee/candidates/status', [SubmitCvController::class,'updateStatusAjax']);
 
-     return view('employee.candidates')->with('users',$user);
-  });
-
-      /*end*/
+      /*********************end*********************/
       
    Route::get('employee/logout',function(){
    

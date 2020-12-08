@@ -42,8 +42,8 @@
                                             style="border: 1px solid black;">
                                             <option selected value="part-time">Part-Time</option>
                                             <option value="full-time">Full-Time</option>
-                                            <option value="contract">Contract</option>
-                                            <option value="Permanent">permanent</option>
+                                            <option value="internship">Internship</option>
+                                            
                                         </select>
                                 </div>
                                  <div class="form-group mt-5">
@@ -70,64 +70,29 @@
                                         </select>
                                 </div>
                                 <div class="mt-5">
-                                    <h6 style="font-weight: bold;">What contract type is it?</h6>
+                                    <h6 style="font-weight: bold;">Remote?</h6>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend p-2" style="border: 1px solid lightgray;">
                                             <div class="form-check bg-white text-center">
                                                 <input type="radio" class="form-check-input mt-2" id="radio2"
-                                                    name="remote" value="temprory" checked>
+                                                    name="remote" value="No" checked>
                                             </div>
                                         </div>
                                         <input type="text" class="form-control form-control-lg bg-white"
-                                            placeholder="Temprory" readonly>
+                                            placeholder="No" readonly>
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend p-2" style="border: 1px solid lightgray;">
                                             <div class="form-check bg-white text-center">
                                                 <input type="radio" class="form-check-input mt-2" id="radio2"
-                                                    name="remote" value="contract">
+                                                    name="remote" value="Yes">
                                             </div>
                                         </div>
                                         <input type="text" class="form-control form-control-lg bg-white"
-                                            placeholder="Contract" readonly>
+                                            placeholder="Yes" readonly>
                                     </div>
-
-
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend p-2" style="border: 1px solid lightgray;">
-                                            <div class="form-check bg-white text-center">
-                                                <input type="radio" class="form-check-input mt-2" id="radio2"
-                                                    name="remote" value="internship">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control form-control-lg bg-white"
-                                            placeholder="Internship" readonly>
-                                    </div>
-
-
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend p-2" style="border: 1px solid lightgray;">
-                                            <div class="form-check bg-white text-center">
-                                                <input type="radio" class="form-check-input mt-2" id="radio2"
-                                                    name="remote" value="commision">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control form-control-lg bg-white"
-                                            placeholder="Commision" readonly>
-                                    </div>
-
-
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend p-2" style="border: 1px solid lightgray;">
-                                            <div class="form-check bg-white text-center">
-                                                <input type="radio" class="form-check-input mt-2" id="radio2"
-                                                    name="remote" value="new-grad">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control form-control-lg bg-white"
-                                            placeholder="New-Grad" readonly>
-                                    </div>
+  
                                 </div>
                                
                               
@@ -145,7 +110,7 @@
                         <div class="form-group mt-5">
                                     <h6 style="font-weight: bold;">Experience<span class="ml-1"
                                             style="color: red;">*</span></h6>
-                                           <input type="text" name="experience" class="form-control form-control-lg bg-white" required placeholder="1-?">
+                                           <input type="text" name="experience" class="form-control form-control-lg bg-white" pattern="^\d{1}-\d{0,20}"  required placeholder="1-?">
                          </div>
                           <div class="">
                             <h4 class="card-title" style="font-weight: bold;">Salary</h4>

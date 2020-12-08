@@ -50,7 +50,7 @@
      <div class="divsearch_page7 pt-3">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-6 col-xs-6 mt-2">
-                <a href="#" class="ml-5 mr-5"
+                <a href="{{url('employee/jobs')}}" class="ml-5 mr-5"
                     style="color: white !important; border-bottom: 5px solid white !important; font-weight: bold;">Jobs</a>
                 <a href="#" class="ml-5" style="color: white !important;  font-weight: bold;">Candidate</a>
             </div>

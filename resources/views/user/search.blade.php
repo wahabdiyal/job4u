@@ -231,7 +231,16 @@
             <div class="col-md-12 mt-3">
                 <div class="card shadow border-light mb-3">
                     <div class="card-header">
-                        <span class="bacic-header-color fontclassspan">New</span>
+                        <span class="bacic-header-color fontclassspan"><?php 
+                        $timediff = strtotime(now()) - strtotime($search->created_at);
+
+if($timediff > 86400){ 
+    echo ''; 
+ }
+else
+{
+ echo 'New';
+}?></span>
                         <span class="save-card-header fontclassspan"><i class="fa fa-star-o mr-2"></i>save</span>
                         <br>
                         <span class=" fontclassspan">The company is looking for:{{$search->candidate}}</span>
