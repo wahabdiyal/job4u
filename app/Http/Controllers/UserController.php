@@ -68,7 +68,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('city',$request->location)
                     ->where('employment_type',$request->jt)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -78,7 +78,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('employment_type',$request->jt)
                     
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
@@ -88,7 +88,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('employment_type',$request->jt)
                      
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -97,7 +97,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
      
            $searchs = JobRegister::where('employment_type',$request->jt)
                      
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -108,7 +108,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('city',$request->location)
                     ->where('candidate',$request->candidate)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -118,7 +118,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('candidate',$request->candidate)
                     
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
@@ -128,7 +128,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('candidate',$request->candidate)
                      
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -137,7 +137,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
      
            $searchs = JobRegister::where('candidate',$request->candidate)
                      
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -149,7 +149,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('city',$request->location)
                     ->where('company',$request->company)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -163,7 +163,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
             $searchs = JobRegister::where('city',$request->location)
                     ->where('education',$request->education)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -173,7 +173,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('education',$request->education)
                     
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
@@ -183,7 +183,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('education',$request->education)
                      
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -192,7 +192,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
      
            $searchs = JobRegister::where('education',$request->education)
                      
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
          }
@@ -201,7 +201,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
             $searchs = JobRegister::where('city',$request->location)
                     ->where('company_id',$request->company)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -216,7 +216,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('company_id',$request->company)
                     
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
@@ -226,7 +226,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
            $searchs = JobRegister::where('company_id',$request->company)
                      
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -235,7 +235,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
      
            $searchs = JobRegister::where('company_id',$request->company)
                      
-                    ->with('company')
+                    ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
          }
@@ -247,7 +247,7 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
 
              $searchs = JobRegister::where('city',$request->location)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->paginate(4);
+                    ->with('company')->orderBy('id', 'DESC')->paginate(4);
         
                 
          }elseif (!empty($request->location) || !empty($request->job)) {
@@ -255,14 +255,14 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
               $searchs = JobRegister::where('job_skill','like',$request->job. '%')
               ->OrWhere('city',$request->location)
                     
-                    ->with('company')->paginate(4);
+                    ->with('company')->orderBy('id', 'DESC')->paginate(4);
        
             
          }else{
              
                $searchs = JobRegister::where('city',$request->location)
                       ->OrWhere('job_skill','like',$request->job. '%')
-                      ->with('company')->paginate(4);
+                      ->with('company')->orderBy('id', 'DESC')->paginate(4);
                   } 
             return view('user.search')->with('searchs',$searchs)->with('companies',Company::select('id','name')->get());
         

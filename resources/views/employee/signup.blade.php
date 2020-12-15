@@ -62,7 +62,7 @@
 </div>
 </div>
 <div class="form-row">
-<div class="name">Password</div>
+<div class="name">Email</div>
 <div class="value">
 <div class="input-group">
 <input class="input--style-5" type="email" name="email">
@@ -72,7 +72,7 @@
 
 
 <div class="form-row">
-<div class="name">Re-Password</div>
+<div class="name">Password</div>
 <div class="value">
 <div class="input-group">
 
@@ -83,7 +83,7 @@
 
 
 <div class="form-row">
-<div class="name">Email</div>
+<div class="name">Re-Password</div>
 <div class="value">
 <div class="input-group">
   <input type="password" class="input--style-5" name="confirm_password" id="confirm_password" />

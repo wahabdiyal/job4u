@@ -51,15 +51,23 @@
         <div class="row">
             <div class="col-12 col-sm-6 col-md-6 col-xs-6 mt-2">
                 <a href="{{url('employee/jobs')}}" class="ml-5 mr-5"
-                    style="color: white !important; border-bottom: 5px solid white !important; font-weight: bold;">Jobs</a>
-                <a href="#" class="ml-5" style="color: white !important;  font-weight: bold;">Candidate</a>
+                    style="color: white !important; /*border-bottom: 5px solid white !important;*/ font-weight: bold;">Jobs</a>
+               <!--  <a href="#" class="ml-5" style="color: white !important;  font-weight: bold;">Candidate</a> -->
             </div>
 
             <div class="col-12 col-sm-6 col-md-6 col-xs-6 ">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-8 form-group has-search">
-                        <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" class="form-control" placeholder="Search Candidate">
+                        <!-- <form>
+                        <div class="input-group">
+                        <input name="candidate"  class="form-control" type="text" value="<?=isset($_GET['candidate'])?$_GET['candidate']:''?>"   placeholder="Candidate search...">
+
+                         <div class="input-group-btn">
+                          <button id="b1" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+
+                            </div>
+                            </div>
+                        </form> -->
                     </div>
                     <div class="col-12 col-sm-12 col-md-4">
                         <a href="{{url('/employee/jobpost/basic')}}" class="btn btn-danger pl-3 pr-3 searchbtn-page7">Post A Job</a>
@@ -69,4 +77,4 @@
 
             </div>
 
-        </div>
+        </div></div>

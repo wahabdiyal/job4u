@@ -177,7 +177,8 @@ Route::group(['middleware' => ['Employee']], function () {
            return view('employee.jobpostexperience');
   }); 
   Route::get('/employee/jobs',[CompanyController::class,'index']);
-
+  Route::get('employee/jobs/view/{job_id}', [CompanyController::class,'showJobDetail']);
+  
     Route::get('/employee/jobpost/basic', function () {
     return view('employee.jobpost');
   });
@@ -188,7 +189,12 @@ Route::group(['middleware' => ['Employee']], function () {
       Route::get('/employee/candidates/{job_id}/{status}', [SubmitCvController::class,'updateStatus']);
       Route::post('/employee/candidates/status', [SubmitCvController::class,'updateStatusAjax']);
 
-      /*********************end*********************/
+      /*******************************end*******************************/
+
+      //////////////////////change Job status////////////////////////
+      Route::post('employee/job/status', [CompanyController::class,'updateStatusJobAjax']);
+      
+      
       
    Route::get('employee/logout',function(){
    

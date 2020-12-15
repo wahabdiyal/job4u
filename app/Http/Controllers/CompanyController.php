@@ -13,9 +13,27 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $a=JobRegister::where('company_id',session()->get('emply')->id)->orderBy('id', 'DESC')->paginate(4);
+        
+        if($request->input('title')){
+          $a=JobRegister::where('company_id',session()->get('emply')->id)
+          ->where('job_title',$request->input('title'))
+          ->orderBy('id', 'DESC')->paginate(4);
+
+        }elseif ($request->input('city')) {
+           $a=JobRegister::where('company_id',session()->get('emply')->id)
+          ->where('city',$request->input('city'))
+
+           ->orderBy('id', 'DESC')->paginate(4); 
+        }
+        elseif ($request->input('order')) {
+           $a=JobRegister::where('company_id',session()->get('emply')->id)
+           ->orderBy('id',$request->input('order'))->paginate(4); 
+        }else{
+            $a=JobRegister::where('company_id',session()->get('emply')->id)->orderBy('id', 'DESC')->paginate(4);
+        }
+        
         if($a){
            
             return view('employee.jobs')->with('jobs',$a) ;
@@ -100,9 +118,15 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+       public function updateStatusJobAjax(Request $request)
     {
-        //
+
+        $job = JobRegister::find($request->id);
+        if ($job) {
+            $job->update(['job_status'=>$request->status]);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -111,9 +135,14 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function showJobDetail($id)
     {
-        //
+        
+         
+         return view('employee.jobdetail')
+        
+         ->with('search',JobRegister::where('id',$id)->with('company','skill')->first());
+          
     }
 
     /**
