@@ -45,10 +45,20 @@
 </div>
 </div>
 <div class="col-2">
-<div class="input-group-desc">
-<input class="input--style-5" type="text" name="company_type" placeholder="IT..">
-<label class="label--desc">Company Type</label>
+ <div class="rs-select2 js-select-simple select--no-search">
+<select   name="company_type">
+ <option selected value="information_tech">Information Technology</option>
+                                               <option value="engineering">Engineering</option>
+                                               <option value="banking_finance">Banking & Finance</option>
+                                               <option value="scm_operations/BPO">SCM & Operations/BPO</option>
+                                               <option value="sales_marketing">Sales & Marketing Jobs</option>
+                                               <option value="other">Other Jobs</option>
+</select>
+<div class="select-dropdown"></div>
 </div>
+  
+<!-- <input class="input--style-5" type="text" name="company_type" placeholder="IT.."> -->
+ 
 </div>
 </div>
 </div>
@@ -98,7 +108,7 @@
 <div class="name">Address</div>
 <div class="value">
 <div class="input-group">
-<textarea class="input--style-5" name="address"></textarea>
+<textarea class="input--style-textare"  name="address"></textarea>
 </div>
 </div>
 </div>
@@ -157,7 +167,7 @@
 <div class="name">About Company</div>
 <div class="value">
 <div class="input-group">
-<textarea class="input--style-5" name="detail"></textarea>
+<textarea class="input--style-textare" name="detail"></textarea>
 </div>
 </div>
 </div>

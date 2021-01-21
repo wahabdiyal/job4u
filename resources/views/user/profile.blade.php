@@ -36,7 +36,7 @@
                     </div>
                     <div class="row mt-2">
                         <span class="font-weight-bold page-six-smalltext">Industry: </span>
-                        <span class="page-six-smalltext">&nbsp; <?php if(isset($user['skill'])) echo$user['skill'];else echo'<a href="#" class="edit">🖍</a>'; ?></span>
+                        <span class="page-six-smalltext">&nbsp; <?php if(isset($user['industry'])) echo$user['industry'];else echo'<a href="#" class="edit">🖍</a>'; ?></span>
                     </div>
                     <div class="row mt-2">
                         <span class="font-weight-bold page-six-smalltext">Mobile: </span>
@@ -335,7 +335,7 @@
                     </div>
                     <div class="row mt-2">
                         <span class="font-weight-bold page-six-smalltext">Industry: </span>
-                        <span class="page-six-smalltext">&nbsp; <?php if(isset($user['skill'])) echo$user['skill'];else echo'<a href="#" class="edit">Null</a>'; ?></span>
+                        <span class="page-six-smalltext">&nbsp; <?php if(isset($user['industry'])) echo$user['industry'];else echo'<a href="#" class="edit">Null</a>'; ?></span>
                     </div>
                     <div class="row mt-2">
                         <span class="font-weight-bold page-six-smalltext">Mobile: </span>

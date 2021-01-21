@@ -9,7 +9,7 @@
                     <div class="navbar-nav">
                         <a href="#" class="nav-item nav-link active-page1 mr-4 navlinks">Find jobs</a>
                         <a href="#" class="nav-item nav-link  mr-4 navlinks">Company Reviews</a>
-                        <a href="#" class="nav-item nav-link navlinks ">Find Salaries</a>
+                        <a href="#" class="nav-item nav-link navlinks ">Find Candidates</a>
 
                     </div>
                          @if(session()->get('emply'))
@@ -18,30 +18,35 @@
                 <a href="#" class="mr-5 mt-2  navlinks"><img src="{{url('user/asserts/notifacatin dot.png')}}"></a>
                 <div class="dropdown">
                 <a href="#"   id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  class="mr-4 mt-2 navlinks dropdown-toggle"><img src="{{url('user/asserts/profile 4.png')}}"> </a>
+
                  <div class="dropdown-menu dropdown-menu-right" style="width: 250px;" aria-labelledby="dropdownMenuButton">
-                 <a class="dropdown-item" href="#">Profile Company <i style="float: right;" class="fa fa-user text-muted"> </i></a>
-                 <!--  <a class="dropdown-item" href="#">My Job<i style="float: right;" class="fa fa-briefcase text-muted"> </i></a>
-                 <a class="dropdown-item" href="#">Account<i style="float: right;" class="fa fa-list text-muted"> </i></a> -->
-                  <a class="dropdown-item" href="{{url('employee/logout')}}">Logout<i style="float: right;" class="fa fa-sign-out text-muted"> </i></a>
+                  <a href="#" class="dropdown-item" style="font-weight: 700;color:#3a3131"  >{{session()->get('emply')['email']}} </a>
+                   <a class="dropdown-item" style="font-weight: 700;color: gray" href="#">Billing   </a>
+
+                    <a class="dropdown-item" style="font-weight: 700;color: #3a3131" href="#">Invoices<i style="float: right;" class="fa fa-cc-visa text-muted"> </i></a>
+                    <a class="dropdown-item" style="font-weight: 700;color: #3a3131" href="#">Payment Method<i style="float: right;" class="fa  fa-credit-card text-muted"> </i></a>
+
+                     <a class="dropdown-item" style="font-weight: 700;color: gray" href="#">Account</a>
+
+
+
+
+
+                 <a class="dropdown-item" style="font-weight: 700;color: #3a3131" href="{{url('employee/profile')}}">Company Setting <i style="float: right;" class="fa fa-tv text-muted"> </i></a>
+
+                  <!-- <a class="dropdown-item" href="#">My Job<i style="float: right;" class="fa fa-briefcase text-muted"> </i></a>
+ -->
+                 <a class="dropdown-item" style="font-weight: 700;color: #3a3131"  href="#">Account<i style="float: right;" class="fa fa-list text-muted"> </i></a>
+
+                  <a class="dropdown-item" style="font-weight: 700;color: #3a3131" href="{{url('employee/logout')}}">Logout<i style="float: right;" class="fa fa-sign-out text-muted"> </i></a>
           
                  </div>
              </div>
-                <a href="{{url('/')}}" class="nav-item nav-link mt-1 navlinks">For JobSeeker</a>
-                <!-- <a href="#" class="nav-item nav-link">French</a> -->
+                <!-- <a href="{{url('/')}}" class="nav-item nav-link mt-1 navlinks">For JobSeeker</a> -->
+                <a href="#" class="nav-item nav-link">{{session()->get('emply')['name']}}</a>
                  </div>
-                         @else
-                    <div class="navbar-nav ml-auto">
-                         
-                            
-                            <a href="#" data-toggle="modal" data-target="#signup" data-dismiss="modal"
-                            class="nav-item nav-link mr-4 mt-1 navlinks">Register</a>
-                            
-                            <a href="#" class="nav-item nav-link own-btn mr-4 shadow mt-1 navlinks" data-toggle="modal" data-target="#signin">Sign In</a>
-                        <!-- <button type="button" class="shadow own-btn mr-3" data-toggle="modal" data-target="#signin">Sign
-                            In</button> -->
-                        <a href="" class="nav-item nav-link mr-4 mt-1 navlinks">For Employeers</a>
-                        <a href="#" class="nav-item nav-link mt-1 navlinks ">French</a>
-                    </div>@endif
+                       
+                    @endif
                 </div>
             </div>
         </nav>

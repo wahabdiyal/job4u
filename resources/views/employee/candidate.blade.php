@@ -6,7 +6,7 @@
  
 @section('content')
 
-
+ 
         
     <div class="container-fluid p-4 bg-light">
         <div class="row">
@@ -383,58 +383,87 @@
                         <!-- ############## Interview Schedule Buttton ########################### -->
                        <div class="text-center mt-3">
                            <span style="font-size: 4em;"><i class="fa fa-calendar-times-o"></i></span><br>
+
+                           @if(!$schedule)
                            <div class="mt-3">
                                <span class="" style="font-size: 0.8em; font-weight: bold;">
                                     You haven't scheduled any interviews with
-                                </span><span style="font-size: 0.8em; font-weight: bold;">Muhammad Amir</span><br>
+                                </span><span style="font-size: 0.8em; font-weight: bold;">{{$user->name}}</span><br>
                                 <span class="" style="font-size: 0.8em;">
                                     Schedule interviews through Indeed to get email confirmation
                                     from candidates, enable reminders, and report no shows.
                                 </span>
                            </div>
+                           @else
+                           <table class="table table-dark">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Start</th>
+                                  <th scope="col">End</th>
+                                  <th scope="col">Time</th>
+                                  <th scope="col">Description</th>
+                                   
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @foreach($schedule as $schedules)
+                                <tr>
+                                  <th scope="row">{{$loop->iteration}}</th>
+                                  <td>{{$schedules->start_date}}</td>
+                                  <td>{{$schedules->end_date}}</td>
+                                  <td>{{$schedules->time}}</td>
+                                  <td>{{$schedules->detail}}</td>
+                                </tr>
+                                 @endforeach
+                              </tbody>
+                            </table>
+                           @endif
+
                            <div class="mt-5 mb-5">
-                               <button class="btn btn-danger p-3" style="border-radius: 40px;">Set up Interviews</button>
+                               <button data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-danger p-3" style="border-radius: 40px;">Set up Interviews</button>
                            </div>   
                        </div>
                        <!-- ######################################################### -->
-                        <div class="mt-3 pl-4 pr-4">
+                        <div class="mt-3 pl-4 pr-4 collapse"  id="collapseExample">
                             <span class="text-muted" style="font-size: 0.8em; font-weight: bold;">
                                    (GMT+05:00) Pakistan Standard Time (Pakistan)
                                 </span>
-                                <form class="mt-4">
+                                <form class="mt-4" action="{{url('/employee/schedule')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{$user->id}}">
+                                    <input type="hidden" name="job_register_id" value="{{$job->id}}">
+                                    <input type="hidden" name="company_id" value="{{session()->get('emply')->id}}">
+
                                     <div class="form-group">
                                         <label style="font-size: 0.8em; font-weight: bold;">Date</label>
                                         <div class="row mb-4">
                                             <div class="col-md-4">
-                                                 <input class="form-control form-control-lg" type="date" name="">
+                                                 <input class="form-control form-control-lg" type="date" name="start_date">
                                             </div>
                                             <div class="col-md-4">
-                                                 <input class="form-control form-control-lg" type="date" name="">
+                                                 <input class="form-control form-control-lg" type="date" name="end_date">
                                             </div>
                                             <div class="col-md-1 mt-2 text-center">
                                                 <label style="font-size: 0.8em; font-weight: bold;">To</label>
                                             </div>
                                             <div class="col-md-3">
-                                                <select  id="" style="padding: 12px; border: 1px solid lightgray;">
-                                                <option selected >3:30 pm</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                                </select>
+                                                
+                                                <input type="time" name="time" style="padding: 12px; border: 1px solid lightgray;">
                                             </div>
                                         </div>
                                          <label style="font-size: 0.8em; font-weight: bold;">Interview Address</label>
                                         <div class="row mb-4">
                                            
                                             <div class="col-md-4">
-                                                <input class="form-control form-control-lg" type="text" name="">
+                                                <input class="form-control form-control-lg" type="text" name="interview_address">
                                             </div>
                                         </div>
                                         <label style="font-size: 0.8em; font-weight: bold;">Interview Details</label>
                                         <div class="row mb-4">
                                            
                                             <div class="col-md-12">
-                                                <input class="form-control form-control-lg" type="text" name="" placeholder="Include any additional information for the candidate here" style="font-size: 0.7em; height: 100px;">
+                                                <input class="form-control form-control-lg" type="text" name="detail" placeholder="Include any additional information for the candidate here" style="font-size: 0.7em; height: 100px;">
                                             </div>
                                         </div>
                                         <div class="row mt-5 mb-4">

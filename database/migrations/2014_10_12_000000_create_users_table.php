@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('lname')->nullable();
             $table->string('canditype_note')->nullable();
+            $table->string('industry')->nullable();
              
             $table->rememberToken();
             $table->timestamps();

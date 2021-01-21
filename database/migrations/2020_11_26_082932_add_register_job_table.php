@@ -18,7 +18,8 @@ class AddRegisterJobTable extends Migration
              $table->string('remote')->nullable();
              $table->string('total_hire')->default(0);
              $table->string('team_contact')->default(0);
-             $table->string('job_status')->nullable();
+             $table->string('payment_status')->default('pending');
+             $table->string('job_status')->default('pending');
              
              
         });

@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Custom Content Above</h1>
+<h1>Companies</h1>
 @stop
 
 @section('content')
@@ -62,11 +62,17 @@
                             <td>{{$company->address}}</td>
                             <td>{{$company->company_type}}</td>
                             <td>{{substr($company->detail,0,10)}}</td>
+                            @if($company->active_deactive != 'active')
                             <td>
                               <a href="{{url('/admin/company/status',$company->id)}}"><button
                                         onclick="return confirm('Are you sure?')"
+                                        class="btn btn-success">{{$company->active_deactive}}</button></a></td>
+                                        @else
+                                        <td>
+                                     <a href="#"><button
+                                         
                                         class="btn btn-primary">{{$company->active_deactive}}</button></a></td>
-
+                                        @endif
                         </tr>
                         @endforeach
                     </tbody>
@@ -92,9 +98,9 @@
                     </thead>
                     <tbody>
                         @foreach($companies as $company)
-                        <tr>
+                        
                             @if($company->active_deactive =='active')
-                            <!-- <td>{{$company->id}}</td> -->
+                            <tr><!-- <td>{{$company->id}}</td> -->
                             <td>{{$company->name}}</td>
                             <td>{{$company->email}}</td>
                             <td>{{$company->mobile_number}}</td>
@@ -112,9 +118,9 @@
                         <button onclick="return confirm('Are you sure?')" type="button" class="btn btn-default"><i
                                                 class="fa fa-trash"></i></button></a>
                       </div>
-                            </td>
+                            </td></tr>
                             @endif
-                        </tr>
+                        
                         @endforeach
                     </tbody>
                 </table>
@@ -138,9 +144,9 @@
                     </thead>
                     <tbody>
                         @foreach($companies as $company)
-                        <tr>
+                       
                             @if($company->active_deactive =='pending')
-                            <!-- <td>{{$company->id}}</td> -->
+                             <tr><!-- <td>{{$company->id}}</td> -->
                             <td>{{$company->name}}</td>
                             <td>{{$company->email}}</td>
                             <td>{{$company->mobile_number}}</td>
@@ -176,9 +182,9 @@
                                                 class="fa fa-trash"></i></button>
                                     </form>
                                 </div> -->
-                            </td>
+                            </td></tr>
                             @endif
-                        </tr>
+                        
                         @endforeach
                     </tbody>
                 </table>
@@ -202,9 +208,9 @@
                     </thead>
                     <tbody>
                         @foreach($companies as $company)
-                        <tr>
+                        
                             @if($company->active_deactive =='deactive')
-                            <!-- <td>{{$company->id}}</td> -->
+                            <tr><!-- <td>{{$company->id}}</td> -->
                             <td>{{$company->name}}</td>
                             <td>{{$company->email}}</td>
                             <td>{{$company->mobile_number}}</td>
@@ -222,9 +228,9 @@
                         <button onclick="return confirm('Are you sure?')" type="button" class="btn btn-default"><i
                                                 class="fa fa-trash"></i></button></a>
                       </div>
-                            </td>
+                            </td></tr>
                             @endif
-                        </tr>
+                        
                         @endforeach
                     </tbody>
                 </table>
@@ -236,12 +242,12 @@
 @stop
 
 @section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
+ 
 @stop
 
 @section('js')
 <script>
-console.log('Hi!');
+ 
 
 $(document).ready(function() {
     $('.table').dataTable();

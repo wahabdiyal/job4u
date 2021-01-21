@@ -259,10 +259,8 @@ else
                         <p class="card-text mt-2 fontclassspan"><img src="{{url('user/asserts/Job Description')}}.png">
                             <?php echo html_entity_decode(htmlspecialchars_decode ($search->job_description)); ?>.
                         </p>
-                        <span class="card-link fontclassspan">Photoshop</span>
-                        <span class="card-link fontclassspan">Illustrator</span>
-                        <span class="card-link fontclassspan">Graphic designer</span>
-                        <span class="card-link fontclassspan">Adobe XD</span>
+                        <span class="card-link fontclassspan">{{$search->job_skill}}</span>
+                        
                     </div>
                     <div class="card-footer">
 

@@ -32,7 +32,7 @@
           <a class="nav-link" href=""><i class="fa fa-plus mr-2"></i>Open New Company</a>
         </li> -->
                 <li class="nav-item">
-          <a class="nav-link active" href="#"><i class="fa fa-pencil mr-2"></i>Edit Market</a>
+          <a class="nav-link active" href="#"><i class="fa fa-pencil mr-2"></i>Edit Company</a>
         </li>
       </ul>
     </div>
@@ -47,7 +47,7 @@
         <div class="col-9">
             <input class="form-control" placeholder="Insert Name" name="name" type="text" value="{{$company->name}}" id="name">
             <div class="form-text text-muted">
-                Insert Name
+                Company Name
             </div>
         </div>
     </div>
@@ -62,48 +62,40 @@
         </div>
     </div>
 
-    <!-- delivery_range Field -->
+   
     <div class="form-group row ">
-        <label for="delivery_range" class="col-3 control-label text-right">Delivery Range</label>
+        <label for="company_website" class="col-3 control-label text-right">Website</label>
         <div class="col-9">
-            <input class="form-control" step="any" placeholder="25" name="delivery_range" type="number" id="delivery_range">
-            <div class="form-text text-muted">
-                Enter the delivery range of the market
-            </div>
+            <input class="form-control" step="any" placeholder="25" name="company_website" type="text" id="company_website" value="{{$company->company_website}}">
+             
         </div>
     </div>
 
-    <!-- default_tax Field -->
+    <!-- mobile_number Field -->
     <div class="form-group row ">
-        <label for="default_tax" class="col-3 control-label text-right">Default Tax of the market</label>
+        <label for="mobile_number" class="col-3 control-label text-right">Mobile Number</label>
         <div class="col-9">
-            <input class="form-control" step="any" placeholder="19" name="default_tax" type="number" value="15" id="default_tax">
-            <div class="form-text text-muted">
-                Enter the default tax to overwrite the default tax
-            </div>
+            <input class="form-control" step="any" placeholder="19" name="mobile_number" type="text" value="{{$company->mobile_number}}" id="mobile_number">
+             
         </div>
     </div>
 
     
     <!-- Phone Field -->
     <div class="form-group row ">
-        <label for="phone" class="col-3 control-label text-right">Phone</label>
+        <label for="company_type" class="col-3 control-label text-right">Company type</label>
         <div class="col-9">
-            <input class="form-control" placeholder="Insert Phone" name="phone" type="text" id="phone">
-            <div class="form-text text-muted">
-                Insert Phone
-            </div>
+            <input class="form-control" placeholder="Company type" name="company_type" type="text" id="company_type" value="{{$company->company_type}}">
+            
         </div>
     </div>
 
     <!-- Mobile Field -->
     <div class="form-group row ">
-        <label for="mobile" class="col-3 control-label text-right">Mobile</label>
+        <label for="company_size" class="col-3 control-label text-right"> Company size</label>
         <div class="col-9">
-            <input class="form-control" placeholder="Insert Mobile" name="mobile" type="text" id="mobile">
-            <div class="form-text text-muted">
-                Insert Mobile
-            </div>
+            <input class="form-control" placeholder=" company_size" name="company_size" type="text" id="company_size" value="{{$company->company_size}}">
+             
         </div>
     </div>
 
@@ -111,41 +103,51 @@
     <div class="form-group row ">
         <label for="address" class="col-3 control-label text-right">Address</label>
         <div class="col-9">
-            <input class="form-control" placeholder="Insert Address" name="address" type="text" value="183-189 Mosihoa St, Monise, Katlehong, 1434" id="address">
-            <div class="form-text text-muted">
-                Insert Address
-            </div>
+            <input class="form-control" placeholder="Insert Address" name="address" type="text" value="{{$company->address}}">
+             
         </div>
     </div>
 
     <!-- Latitude Field -->
     <div class="form-group row ">
-        <label for="latitude" class="col-3 control-label text-right">Latitude</label>
+        <label for="registration_date" class="col-3 control-label text-right">Registration Date</label>
         <div class="col-9">
-            <input class="form-control" placeholder="Insert Latitude" name="latitude" type="text" value="26.357946" id="latitude">
-            <div class="form-text text-muted">
-                Insert Latitude
-            </div>
+            <input class="form-control" placeholder="Insert registration_date" name="registration_date" type="text" value="{{$company->registration_date}}" id="registration_date">
+            
+        </div>
+    </div>
+ 
+    <div class="form-group row ">
+        <label for="company_number" class="col-3 control-label text-right">Company Number</label>
+        <div class="col-9">
+            <input class="form-control" placeholder=" company Number" name="company_number" type="text" value="{{$company->company_number}}" id="company_number">
+             
         </div>
     </div>
 
-    <!-- Longitude Field -->
     <div class="form-group row ">
-        <label for="longitude" class="col-3 control-label text-right">Longitude</label>
+        <label for="company_country" class="col-3 control-label text-right">Company Country</label>
         <div class="col-9">
-            <input class="form-control" placeholder="Insert Longitude" name="longitude" type="text" value="28.161182" id="longitude">
-            <div class="form-text text-muted">
-                Insert Longitude
-            </div>
+            <input class="form-control" placeholder=" company Number" name="company_country" type="text" value="{{$company->company_country}}" id="company_country">
+             
         </div>
     </div>
-    <!-- 'Boolean closed Field' -->
+
     <div class="form-group row ">
-        <label for="closed" class="col-3 control-label text-right">Closed market</label>
+        <label for="detail" class="col-3 control-label text-right">Detail</label>
+        <div class="col-9">
+            <textarea id="detail" class="form-control" name="detail">{{$company->detail}}</textarea> 
+             
+        </div>
+    </div>
+
+    <div class="form-group row ">
+        <label for="closed" class="col-3 control-label text-right">Status</label>
         <div class="checkbox icheck ml-5">
              <label class="form-check-label">
-          <input type="checkbox" class="form-check-input"  checked>Active
+          <input type="checkbox" name="active_deactive" class="form-check-input"  @if($company->active_deactive == 'active') checked @endif >Active
         </label>
+
         </div>
     </div>
 

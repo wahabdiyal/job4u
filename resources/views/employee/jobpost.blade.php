@@ -31,9 +31,16 @@
                                     <input type="text" name="job_title" class="form-control form-control-lg" required>
                                 </div>
                               <div class="form-group mt-5">
-                                    <h6 style="font-weight: bold;">Industry<span class="ml-1"
+                                    <h6 style="font-weight: bold;">Industry/Sector<span class="ml-1"
                                             style="color: red;">*</span></h6>
-                                           <input type="text" name="industry" class="form-control form-control-lg bg-white" required placeholder="Computer or Teacher.....">
+                                           <!-- <input type="text" name="industry" class="form-control form-control-lg bg-white" required placeholder="Computer or Teacher....."> -->
+                                           <select class="form-control" name="industry"  >
+                                            @foreach(\App\Models\Industry::all() as $industry)
+                                               <option selected value="{{$industry->name}}">{{ucfirst($industry->name)}}</option>
+                                               
+                                               @endforeach
+                                             </select>
+ 
                                 </div>
                                 <div class="form-group mt-2">
                                     <h6 style="font-weight: bold;">city<span class="ml-1" style="color: red;">*</span></h6>
@@ -82,7 +89,7 @@
                           <div class="form-group mt-5">
                                     <h6 style="font-weight: bold;">Total Hiring<span class="ml-1"
                                             style="color: red;">*</span></h6>
-                                           <input type="text" pattern="^\d{1}-\d{0,20}" name="total_hire" class="form-control form-control-lg bg-white" required placeholder="1-10">
+                                           <input type="text" pattern="^\d{0,20}" name="total_hire" class="form-control form-control-lg bg-white" required placeholder="total Hiring Number">
                          </div>
                             </div>
             

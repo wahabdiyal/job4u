@@ -60,16 +60,18 @@
                 </div>
                 <div class="col-md-12 mt-5">
                     <div class="row">
+                        @foreach($industries as $industry)
+                       
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-10 shadow p-2">
                                     <div class="row">
                                         <div class="col-md-3 pt-3 pb-3 ">
-                                            <img src="{{url('user/asserts/Group 22.png')}}" class="img-fluid">
+                                            <img src="{{$industry->image}}" class="img-fluid">
                                         </div>
                                         <div class="col-md-9 pt-3 classforh5">
-                                            <h5>Information Technology</h5>
-                                            <a href="{{url('search')}}?job=computer&location=">{{$it}} Jobs</a>
+                                            <h5>{{ucfirst($industry->name)}}</h5>
+                                            <a href="{{url('search')}}?job={{$industry->name}}&location="> {{\App\Models\JobRegister::where('job_status','Active')->where('industry',$industry->name)->count()}} Jobs</a>
                                         </div>
                                     </div>
                                 </div>
@@ -78,124 +80,21 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-1">
-
-                                </div>
-                                <div class="col-md-9 shadow p-2">
-                                    <div class="row">
-                                        <div class="col-md-3 pt-3 pb-3">
-                                            <img src="{{url('user/asserts/Group 24.png')}}" class="img-fluid">
-                                        </div>
-                                        <div class="col-md-9 pt-3 classforh5">
-                                            <h5>Engineering</h5>
-                                            <a href="#">{{$eng}} Jobs</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-2">
-
-                                </div>
-                                <div class="col-md-10 shadow p-2">
-                                    <div class="row">
-                                        <div class="col-md-3 pt-3 pb-3">
-                                            <img src="{{url('user/asserts/Group 27.png')}}" class="img-fluid">
-                                        </div>
-                                        <div class="col-md-9 pt-3 classforh5">
-                                            <h5>Banking & Finance</h5>
-                                            <a href="#">{{$business}} Jobs</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        
-
-
-
-
+                         @if($loop->iteration == 6) 
+                            <?php $a = $loop->count; ?> 
+                        @break
+                    @endif
+                        @endforeach
                     </div>
                 </div>
-                <div class="col-sm-12 mt-5 ">
-                    <div class="row">
-                        <div class="col-md-4 ">
-                            <div class="row">
-                                <div class="col-md-10 shadow p-2">
-                                    <div class="row">
-                                        <div class="col-md-3 pt-3 pb-3">
-                                            <img src="{{url('user/asserts/Group 42.png')}}" class="img-fluid">
-                                        </div>
-                                        <div class="col-md-9 pt-3 classforh5">
-                                            <h5>SCM & Operations/BPO</h5>
-                                            <a href="#">{{$bpo}} Jobs</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-1">
-
-                                </div>
-                                <div class="col-md-9 shadow p-2">
-                                    <div class="row">
-                                        <div class="col-md-3 pt-3 pb-3">
-                                            <img src="{{url('user/asserts/sales.png')}}" class="img-fluid">
-                                        </div>
-                                        <div class="col-md-9 pt-3 classforh5">
-                                            <h5>Sales & Marketing Jobs</h5>
-                                            <a href="#">{{$sales_marketing}} Jobs</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ">
-                            <div class="row">
-                                <div class="col-md-2 ">
-
-                                </div>
-                                <div class="col-md-10 shadow p-2">
-                                    <div class="row">
-                                        <div class="col-md-3 pt-3 pb-3">
-                                            <img src="{{url('user/asserts/Group 41.png')}}" class="img-fluid">
-                                        </div>
-                                        <div class="col-md-9 pt-3 classforh5">
-                                            <h5>All Jobs</h5>
-                                            <a href="{{url('search')}}?job=&location=">{{$total}} Jobs</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+                 
 
 
 
-                <div class="col-md-12  p-3 mt-5 mb-5 shadow-sm bg-light rounded ">
-                    <h6 id="h6id">Find jobs on the go</h6>
+                <div class="col-md-12 p-3 mt-5 mb-5 shadow-sm bg-light rounded ">
+                    @isset($a)
+   <h6 id="h6id"> <a  style="color: #32BAE7" href="{{url('user/industry')}}"> {{$a}}  more jobs  </a></h6>
+@endisset 
                     <div class="row">
                         <div class="col-md-6  p-3 mt-5 mb-5 ">
                             <div class="col-md-10 container-Go">

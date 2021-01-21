@@ -19,7 +19,7 @@
             
             <div class="p-5 ">
                 <div class="form-group">
-                <h4 class="card-title" style="font-weight: bold;">Job Details</h4>
+                <h4 class="card-title" style="font-weight: bold;" > <span translate="no" lang="en">Job Details</span></h4>
                 </div>
                 <!-- ############ Job Detail Section ###################-->
                 <section class=" bg-light shadow p-4"> 
@@ -53,7 +53,7 @@
                                             style="border: 1px solid black;" name="candidate">
                                             <option selected value="Job Seeker">Job seeker</option>
                                             <option value="Handicap">Handicap person</option>
-                                            <option value="Trainer">Trainer</option>
+                                            <option value="Trainer">Teacher</option>
                                             <option value="Student">Student</option>
                                             <option value="Apprentice">Apprentice</option>
                                             <option value="Subsidized Contract">Subsidized Contract</option>
@@ -70,7 +70,7 @@
                                         </select>
                                 </div>
                                 <div class="mt-5">
-                                    <h6 style="font-weight: bold;">Remote?</h6>
+                                    <h6 style="font-weight: bold;">Place or City of work?</h6>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend p-2" style="border: 1px solid lightgray;">
                                             <div class="form-check bg-white text-center">
@@ -108,9 +108,9 @@
                 
                    <div class="p-5">
                         <div class="form-group mt-5">
-                                    <h6 style="font-weight: bold;">Experience<span class="ml-1"
+                                    <h6 style="font-weight: bold;">Work Experience<span class="ml-1"
                                             style="color: red;">*</span></h6>
-                                           <input type="text" name="experience" class="form-control form-control-lg bg-white" pattern="^\d{1}-\d{0,20}"  required placeholder="1-?">
+                                           <input type="text" name="experience" class="form-control form-control-lg bg-white" pattern="^\d{1}-\d{0,20}"  required placeholder="Example :  6 ">
                          </div>
                           <div class="">
                             <h4 class="card-title" style="font-weight: bold;">Salary</h4>
@@ -127,9 +127,12 @@
                               <div class="col-md-4">
                                  <div class="input-group mb-3">
                                  <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1" style="background-color: white; border: 1px solid black; border-right: none;">PKR:</span>
+                                <span class="input-group-text" id="basic-addon1" style="background-color: white; border: 1px solid black; border-right: none;"><?php
+                                $ip =  $_SERVER['REMOTE_ADDR'];
+                                echo $location = file_get_contents("http://api.hostip.info/country.php?ip=$ip");
+                                ?>:</span>
                                             </div>
-                                <input type="number"  name="start_salary"  class="form-control" placeholder="Example: 5,00,000" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid black; border-left: none; ">
+                                <input type="number"  name="start_salary"  class="form-control" placeholder="Example: 3,00,000" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid black; border-left: none; ">
                                 </div>
                               </div>
                               <div class="col-md-1 text-center">
@@ -138,16 +141,19 @@
                               <div class="col-md-4">
                                   <div class="input-group mb-3">
                                  <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1" style="background-color: white; border: 1px solid black; border-right: none;">PKR</span>
+                                <span class="input-group-text" id="basic-addon1" style="background-color: white; border: 1px solid black; border-right: none;"><?php
+                                $ip =  $_SERVER['REMOTE_ADDR'];
+                              echo $location = file_get_contents("http://api.hostip.info/country.php?ip=$ip");
+                                ?></span>
                                             </div>
-                                <input type="number" class="form-control" name="end_salary" placeholder="Example: 5,00,000" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid black; border-left: none;">
+                                <input type="number" class="form-control" name="end_salary" placeholder="Example: 5,00,000" aria-label="salary" aria-describedby="basic-addon1" style="border: 1px solid black; border-left: none;">
                                 </div>
                               </div>
                               <div class="col-md-3 input-group">
   
                                 <select name="salary_type" class="custom-select" id="inputGroupSelect01" style="border: 1px solid black;">
-                                  <option selected value="monthly">monthly</option>
-                                  <option value="yearly">yearly</option>
+                                  <option selected value="monthly">Monthly</option>
+                                  <option value="yearly">Yearly</option>
                                   
                                  </select>
                                 </div>
@@ -191,7 +197,7 @@
              
          </div>
          <div class="col-md-3 text-right">
-            <button type="submit" class="btn btn-danger btn-block">Continue</button>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_51HIu6CIxbvT0Wupd7L5McW2CbSoeO4Si5j6Mi73CuGIJPZfXDcjDGHcK7Ut1YvtjlPyeivyoepQvHHtkjuAaBqYl00M0EKEKKD" data-amount="9999" data-name="Job4u" data-description="JobPost" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto"></script>
 
          </div>
         </div>    

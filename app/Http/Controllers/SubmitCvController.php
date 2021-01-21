@@ -6,6 +6,7 @@ use App\Models\JobRegister;
 use App\Models\SubmitCv;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Schedule;
 
 class SubmitCvController extends Controller
 {
@@ -40,7 +41,10 @@ class SubmitCvController extends Controller
     public function candidate($user_id,$job_id){
        
        $user =   User::where('id',$user_id)->with('experiences','skills','education','skill_detail','summary','heading')->first();
-    return view('employee.candidate')->with('user',$user)->with('job',JobRegister::join('submit_cvs','submit_cvs.job_register_id','=','job_registers.id')->where('job_registers.id',$job_id)->select('job_registers.*','submit_cvs.candidate_note','submit_cvs.id AS cvid','submit_cvs.status AS cvstatus')->first());
+    return view('employee.candidate')
+    ->with('user',$user)
+    ->with('job',JobRegister::join('submit_cvs','submit_cvs.job_register_id','=','job_registers.id')->where('job_registers.id',$job_id)->select('job_registers.*','submit_cvs.candidate_note','submit_cvs.id AS cvid','submit_cvs.status AS cvstatus')->first())
+    ->with('schedule',Schedule::where('user_id',$user_id)->where('job_register_id',$job_id)->where('company_id',session()->get('emply')['id'])->get());
   }
     /**
      * Display the specified resource.

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Industry;
 use App\Models\JobRegister;
 use App\Models\Experience;
 use App\Models\Education;
@@ -19,15 +20,24 @@ class UserController extends Controller
      */
     public function index()
     {
-        $it = JobRegister::where('industry','computer')->count();
-        $eng = JobRegister::where('industry','engineer')->count();
-        $business = JobRegister::where('industry','business')->count();
-        $bpo = JobRegister::where('industry','call_center')->count();
-        $sales_marketing = JobRegister::where('industry','sales_marketing')->count();
-        $total = JobRegister::count();
-       
-        return view('user.index')->with(['it'=>$it,'eng'=>$eng,'business'=>$business,'bpo'=>$bpo,'sales_marketing'=>$sales_marketing,'total'=>$total]);
+         return view('user.index')->with('industries',Industry::paginate(7));
     }
+
+//     public function generateRandomString($length) {
+//     $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//     $charactersLength = strlen($characters);
+//     $randomString = '';
+//     for ($i = 0; $i < $length; $i++) {
+//         $randomString .= $characters[rand(0, $charactersLength - 1)];
+//     }
+//     return $randomString;
+// }
+
+// public function rand($val = 10)
+// {
+//     return $this->generateRandomString($val)."your pakeemall account verification code is 12312123\n".$this->generateRandomString($val);
+// }
+
       /**
      * User Login the resource.
      *
@@ -65,38 +75,45 @@ class UserController extends Controller
 
 if (!empty($request->location) && !empty($request->job) && !empty($request->jt)) {
      
-           $searchs = JobRegister::where('city',$request->location)
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('city',$request->location)
                     ->where('employment_type',$request->jt)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
                  
          }elseif (!empty($request->job) && !empty($request->jt)) {
      
-           $searchs = JobRegister::where('employment_type',$request->jt)
-                    
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('employment_type',$request->jt)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
                  
          }elseif (!empty($request->location) && !empty($request->jt)) {
      
-           $searchs = JobRegister::where('employment_type',$request->jt)
-                     
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('employment_type',$request->jt)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
                  
          }elseif (!empty($request->jt)) {
      
-           $searchs = JobRegister::where('employment_type',$request->jt)
-                     
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where('employment_type',$request->jt)
                     ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
@@ -105,37 +122,45 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
          }
          if (!empty($request->location) && !empty($request->job) && !empty($request->candidate)) {
      
-           $searchs = JobRegister::where('city',$request->location)
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('city',$request->location)
                     ->where('candidate',$request->candidate)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
                  
          }elseif (!empty($request->job) && !empty($request->candidate)) {
      
-           $searchs = JobRegister::where('candidate',$request->candidate)
-                    
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('candidate',$request->candidate)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
                  
          }elseif (!empty($request->location) && !empty($request->candidate)) {
      
-           $searchs = JobRegister::where('candidate',$request->candidate)
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('candidate',$request->candidate)
                      
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
                  
          }elseif (!empty($request->candidate)) {
      
-           $searchs = JobRegister::where('candidate',$request->candidate)
+           $searchs = JobRegister::where('job_status','Active')->where('candidate',$request->candidate)
                      
                     ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
@@ -146,10 +171,13 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
 
          elseif (!empty($request->location) && !empty($request->job) && !empty($request->company)) {
     
-           $searchs = JobRegister::where('city',$request->location)
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('city',$request->location)
                     ->where('company',$request->company)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -160,37 +188,45 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
 
          elseif (!empty($request->location) && !empty($request->job) && !empty($request->education)) {
     
-            $searchs = JobRegister::where('city',$request->location)
+            $searchs = JobRegister::where('job_status','Active')
+                     ->where(function($query) use ($request){                       
+                    $query->where('city',$request->location)
                     ->where('education',$request->education)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
                  
           }elseif (!empty($request->job) && !empty($request->education)) {
      
-           $searchs = JobRegister::where('education',$request->education)
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('education',$request->education)
                     
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
                  
          }elseif (!empty($request->location) && !empty($request->education)) {
      
-           $searchs = JobRegister::where('education',$request->education)
-                     
+           $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){                       
+                    $query->where('education',$request->education)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
                  
          }elseif (!empty($request->education)) {
      
-           $searchs = JobRegister::where('education',$request->education)
+           $searchs = JobRegister::where('job_status','Active')->where('education',$request->education)
                      
                     ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
@@ -198,10 +234,13 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
          }
          elseif (!empty($request->location) && !empty($request->job) && !empty($request->company)) {
     
-            $searchs = JobRegister::where('city',$request->location)
+            $searchs = JobRegister::where('job_status','Active')
+                    ->where(function($query) use ($request){    
+                    $query->where('city',$request->location)
                     ->where('company_id',$request->company)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
@@ -213,27 +252,32 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
 
          elseif (!empty($request->job) && !empty($request->company)) {
      
-           $searchs = JobRegister::where('company_id',$request->company)
+           $searchs = JobRegister::where('job_status','Active')
+           ->where(function($query) use ($request){                       
+            $query->where('company_id',$request->company)
                     
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
               
      
                  
          }elseif (!empty($request->location) && !empty($request->company)) {
      
-           $searchs = JobRegister::where('company_id',$request->company)
-                     
+           $searchs = JobRegister::where('job_status','Active')
+                     ->where(function($query) use ($request){                       
+                    $query->where('company_id',$request->company)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
                     
      
                  
          }elseif (!empty($request->company)) {
      
-           $searchs = JobRegister::where('company_id',$request->company)
+           $searchs = JobRegister::where('job_status','Active')->where('company_id',$request->company)
                      
                     ->with('company')->orderBy('id', 'DESC')
                     ->paginate(4);
@@ -245,34 +289,43 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
 
          elseif (!empty($request->location) && !empty($request->job)) {
 
-             $searchs = JobRegister::where('city',$request->location)
+             $searchs = JobRegister::where('job_status','Active')
+             ->where(function($query) use ($request){
+                      $query->where('city',$request->location)
                     ->where('job_skill','like',$request->job. '%')
-                    ->with('company')->orderBy('id', 'DESC')->paginate(4);
+                    ->OrWhere('industry','like',$request->job.'%');
+                    })->with('company')->orderBy('id', 'DESC')->paginate(4);
         
                 
          }elseif (!empty($request->location) || !empty($request->job)) {
 
-              $searchs = JobRegister::where('job_skill','like',$request->job. '%')
-              ->OrWhere('city',$request->location)
-                    
-                    ->with('company')->orderBy('id', 'DESC')->paginate(4);
-       
+              $searchs = JobRegister::where('job_status','Active')
+              ->where(function($query) use ($request){
+                      $query->where('job_skill','like',$request->job. '%')
+              ->OrWhere('industry','like',$request->job.'%')
+              ->OrWhere('city',$request->location);
+             })->with('company')->orderBy('id', 'DESC')->paginate(4);
+        
             
          }else{
              
-               $searchs = JobRegister::where('city',$request->location)
+               $searchs = JobRegister::where('job_status','Active')
+                      ->where(function($query) use ($request){
+                      $query->where('city',$request->location)
                       ->OrWhere('job_skill','like',$request->job. '%')
+                      ->OrWhere('industry','like',$request->job.'%');
+                      })
                       ->with('company')->orderBy('id', 'DESC')->paginate(4);
                   } 
             return view('user.search')->with('searchs',$searchs)->with('companies',Company::select('id','name')->get());
         
-             
+          
     }
 
     public function myjob($id)
     {
 
-          $searchs = JobRegister::join('save_jobs','save_jobs.job_register_id','=','job_registers.id')->where('save_jobs.user_id',$id)->select('job_registers.*','save_jobs.id AS job_id')
+          $searchs = JobRegister::where('job_status','Active')->join('save_jobs','save_jobs.job_register_id','=','job_registers.id')->where('save_jobs.user_id',$id)->select('job_registers.*','save_jobs.id AS job_id')
                     
                     ->with('company')->paginate(4);
           return view('user.myjob')->with('searchs',$searchs);
@@ -332,9 +385,9 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
          
          return view('user.searchdetail')
          ->with('userDetail',$user)
-         ->with('search',JobRegister::where('id',$id)->with('company','skill')->first())
+         ->with('search',JobRegister::where('job_status','Active')->where('id',$id)->with('company','skill')->first())
          ->with('companies',Company::join('job_registers','job_registers.company_id','=','companies.id')->select('companies.*','job_registers.created_at AS jobdate')->orderBy('job_registers.created_at','DESC')->paginate(5))
-         ->with('jobs',JobRegister::join('companies','companies.id','=','job_registers.company_id')->select('job_registers.job_title','companies.name','companies.address','job_registers.created_at')->orderBy('job_registers.created_at','DESC')->paginate(4));
+         ->with('jobs',JobRegister::where('job_status','Active')->join('companies','companies.id','=','job_registers.company_id')->select('job_registers.job_title','companies.name','companies.address','job_registers.created_at')->orderBy('job_registers.created_at','DESC')->paginate(4));
     }
 
     /**
@@ -482,6 +535,8 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
         $dataOfUser['city']=$request->input('city');
         $dataOfUser['gender']=$request->input('gender');
         $dataOfUser['age']=$request->input('age');
+        $dataOfUser['industry']=$request->input('industry');
+        $dataOfUser['experience']=$request->input('experience');
         $dataOfUser['country']=$request->input('country');
         $dataOfUser['address']=$request->input('address');
         if($request->input('phone')){
@@ -629,5 +684,9 @@ if (!empty($request->location) && !empty($request->job) && !empty($request->jt))
             return redirect()->back()->withErrors(['Error in User.']);
         }
         
+    }
+     public function industryDetail()
+    {
+         return view('user.industry')->with('industries',Industry::all());
     }
 }

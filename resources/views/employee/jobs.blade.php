@@ -140,7 +140,7 @@
                             </select>
         
         </td>
-        <td class="p-4" style="font-size: 0.8em;"><select onchange="location.href='employee/jobs/view/<?=$job->id?>'" class="custom-select" id="inputGroupSelect01"
+        <td class="p-4" style="font-size: 0.8em;"><select onchange="location.href='jobs/view/<?=$job->id?>'" class="custom-select" id="inputGroupSelect01"
                 style="border: 1px solid black; border-radius: 10px; padding-left: 2.375rem;">
                 <option selected>Actions</option>
                 <option value="1"> View job detail </option>

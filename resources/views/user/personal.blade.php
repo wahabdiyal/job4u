@@ -90,6 +90,30 @@
                                             <h6>Email</h6>
                                             <input type="email" name="email" id="email" class="form-control form-control-lg" value="{{$user->email}}" placeholder="xyz@gmail.com" disabled>
                                         </div>
+                                        <div class="form-group">
+                                            <h6>Total Experience</h6>
+                                            <input type="text" name="experience" id="email" class="form-control form-control-lg"  value="{{$user->experience}}"   placeholder="?-year or ?-month" >
+                                        </div>
+                                        <div>
+
+                                                    <h5>Industry</h5>
+                                                </div>
+                                                <div class="form-group input-group">
+
+                                                    <select id="candidate_note" required name="industry" class="form-control form-control-lg">
+                                                    <option <?=(!empty($user->Industry) && $user->Industry=='information_tech')?'selected':'';?> value="information_tech">Information Tech</option>
+                                                     <option <?=(!empty($user->Industry) && $user->Industry=='engineering') ?'selected':'';?> value="engineering">Engineering</option>
+                                                     <option <?=(!empty($user->Industry) && $user->Industry=='banking_finance')?'selected':'';?> value="banking_finance">Banking Finance</option>
+                                                     <option <?=(!empty($user->Industry) && $user->Industry=='scm_operations/BPO')?'selected':'';?> value="scm_operations/BPO">SCM & Operations/BPO</option>
+                                                     <option <?=(!empty($user->Industry) && $user->Industry=='sales_marketing')?'selected':'';?> value="sales_marketing">Sales & Marketing </option>
+                                                     <option <?=(!empty($user->Industry) && $user->Industry=='other')?'selected':'';?> value="other">Other Jobs</option>
+                                                    </select>
+
+                                                    
+                                                </div>
+
+
+
                                         <div>
 
                                                     <h5>Candidate Type</h5>

@@ -62,7 +62,7 @@
                             @endif
                             <span class="  text-muted pt-3 pr-4"><a href="#" class="page3-span">Save job</a></span>
        
-                            <span class="  text-muted pt-3 pr-4">More...</span>
+                            <!-- <span class="  text-muted pt-3 pr-4">More...</span> -->
 
                         </div>
                     </div>
@@ -159,6 +159,8 @@
                         <div class="card-body mb-3">
                             <h4 class="card-title">About Company</h4>
                             <h6>{{$search->company->name}}</h6>
+                            <p>{{$search->company->detail}}</p>
+                            
                             <p>{{$search->company->address}}</p>
                         </div>
                     </div>

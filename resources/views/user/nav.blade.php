@@ -9,7 +9,7 @@
                     <div class="navbar-nav">
                         <a href="#" class="nav-item nav-link active-page1 mr-4 navlinks">Find jobs</a>
                         <a href="#" class="nav-item nav-link  mr-4 navlinks">Company Reviews</a>
-                        <a href="#" class="nav-item nav-link navlinks ">Find Salaries</a>
+                        <a href="#" class="nav-item nav-link navlinks ">Find Candidates</a>
 
                     </div>
                          @if(session()->get('user'))
@@ -26,8 +26,8 @@
           
                  </div>
              </div>
-                <a href="{{url('employee/jobs')}}" class="nav-item nav-link mt-1 navlinks">For Employeers</a>
-                <!-- <a href="#" class="nav-item nav-link">French</a> -->
+                <!-- <a href="{{url('employee/jobs')}}" class="nav-item nav-link mt-1 navlinks">For Employeers</a> -->
+                <a href="#" class="nav-item nav-link">{{session()->get('user')['name']}}</a>
                  </div>
                          @else
                     <div class="navbar-nav ml-auto">
